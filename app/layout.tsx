@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="en"
       className={cn("h-full", "antialiased", inter.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col max-w-7xl mx-auto px-10 max-2xl:px-4">
         <Header />
         {children}
       </body>
