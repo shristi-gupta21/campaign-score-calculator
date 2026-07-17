@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Guardrails from "@/components/features/guardrails";
+import Redial from "@/components/features/redial";
 
 export default function Home() {
   return (
-   <div>
-    <h1>Hello World</h1>
-    <Button>Click me</Button>
-   </div>
+    <div className="flex w-full max-w-[560px] flex-col gap-10 py-10">
+      <Guardrails />
+      <Redial />
+    </div>
   );
 }
