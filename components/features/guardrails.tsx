@@ -27,7 +27,7 @@ export default function Guardrails() {
   }
 
   return (
-    <Card title="Guardrails" className="flex-1">
+    <Card title="Guardrails" contentClassName="gap-12">
       <CallingDays selectedDays={selectedDays} onToggle={toggleDay} />
       <CallingWindow value={windowRange} onValueChange={setWindowRange} />
     </Card>
