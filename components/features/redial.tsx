@@ -1,19 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { Card } from "@/components/shared/card";
+import { RedialCount } from "@/components/features/redial-count";
+import { RedialInterval } from "@/components/features/redial-interval";
+import type { RedialProps } from "@/types/campaign";
 
-import { Card } from "@/components/shared/card"
-import { RedialCount } from "@/components/features/redial-count"
-import { RedialInterval } from "@/components/features/redial-interval"
-
-export default function Redial() {
-  const [redialCount, setRedialCount] = useState(4)
-  const [redialInterval, setRedialInterval] = useState("3")
-
+export default function Redial({
+  redialCount,
+  onRedialCountChange,
+  redialInterval,
+  onRedialIntervalChange,
+}: RedialProps) {
   return (
     <Card title="Redial" contentClassName="gap-10">
-      <RedialCount value={redialCount} onValueChange={setRedialCount} />
-      <RedialInterval value={redialInterval} onValueChange={setRedialInterval} />
+      <RedialCount value={redialCount} onValueChange={onRedialCountChange} />
+      <RedialInterval
+        value={redialInterval}
+        onValueChange={onRedialIntervalChange}
+      />
     </Card>
-  )
+  );
 }

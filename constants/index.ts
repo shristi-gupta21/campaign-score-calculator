@@ -1,3 +1,5 @@
+import { CampaignPenalties } from "@/types/campaign";
+
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const
 const DEFAULT_DAYS = new Set<string>(["Mon", "Tue", "Wed", "Thu", "Fri"])
 const TIME_LABELS = ["8 AM", "11 AM", "2 PM", "5 PM", "9 PM"]
@@ -10,10 +12,22 @@ const REDIAL_INTERVALS = [
   { value: "24", label: "24 hours" },
 ] as const
 
+
+const PENALTY_ROWS: {
+  key: keyof CampaignPenalties
+  label: string
+}[] = [
+  { key: "callingDays", label: "Calling days panelty" },
+  { key: "callingWindow", label: "Calling window panelty" },
+  { key: "redialCount", label: "Redial count penalty" },
+  { key: "redialInterval", label: "Redial interval penalty" },
+]
+
 export {
   DAYS,
   DEFAULT_DAYS,
   REDIAL_COUNTS,
   REDIAL_INTERVALS,
   TIME_LABELS,
+  PENALTY_ROWS,
 }
