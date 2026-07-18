@@ -14,7 +14,7 @@ const CampaignScoreCard = ({
       <div className="relative w-full">
         <div className="absolute inset-x-0 top-[68px] flex flex-col items-center text-center">
           <span className="text-[64px] font-bold tracking-[-2.56px] text-white">
-            {score}
+            {score.toFixed(0)}
           </span>
           <span className="-mt-4 text-sm font-medium tracking-[-0.28px] text-white">
             Campaign Score
@@ -40,7 +40,7 @@ const CampaignScoreCard = ({
                 penalties[key] === 0 ? "text-emerald-600" : "text-red-500",
               )}
             >
-              {penalties[key]}
+              {penalties[key]?.toFixed(0)}
             </p>
           </div>
         ))}

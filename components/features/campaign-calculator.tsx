@@ -1,14 +1,12 @@
 "use client"
 
-import { useCallback, useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 
 import CampaignScoreCard from "@/components/features/campaign-score-card"
 import Guardrails from "@/components/features/guardrails"
 import Redial from "@/components/features/redial"
-import {
-  DEFAULT_CAMPAIGN_INPUTS,
-  DEFAULT_CAMPAIGN_SCORE,
-} from "@/constants/campaign-defaults"
+import { DEFAULT_CAMPAIGN_INPUTS } from "@/constants/campaign-defaults"
+import { calculateScore } from "@/lib/scoring"
 import type { CampaignInputs, RedialIntervalValue } from "@/types/campaign"
 
 export default function CampaignCalculator() {
@@ -44,7 +42,7 @@ export default function CampaignCalculator() {
     }))
   }, [])
 
-  const scoreResult = DEFAULT_CAMPAIGN_SCORE
+  const scoreResult = useMemo(() => calculateScore(inputs), [inputs])
 
   return (
     <div className="flex w-full gap-24 py-10">
