@@ -11,11 +11,11 @@ export function RedialCount({
   onValueChange: (value: number) => void
 }) {
   return (
-    <div className="flex w-full flex-col gap-6">
+    <div className="flex w-full flex-col gap-[18px]"> 
       <p className="font-inter text-sm font-semibold tracking-[-0.28px] text-zinc-800">
         Redial count
       </p>
-      <div className="flex w-full flex-col gap-5">
+      <div className="flex w-full flex-col gap-2">
         <Slider
           value={[value]}
           onValueChange={(nextValue) => {
