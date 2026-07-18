@@ -1,8 +1,8 @@
 export {
   CALLING_WINDOW,
   CALLING_WINDOW_TIME_MARKERS,
-  clampSliderPosition,
+  clampCallingWindowHour,
   getCallingWindowHours,
-  hourToSliderPosition,
-  sliderPositionToHour,
+  hourToSliderPercent,
+  normalizeCallingWindow,
 } from "@/lib/calling-window/mapping"

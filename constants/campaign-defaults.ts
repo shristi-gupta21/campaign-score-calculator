@@ -3,7 +3,7 @@ import type { CampaignInputs } from "@/types/campaign"
 
 export const DEFAULT_CAMPAIGN_INPUTS: CampaignInputs = {
   callingDays: new Set(DEFAULT_DAYS),
-  callingWindow: [0, 100],
+  callingWindow: [8, 21],
   redialCount: 5,
   redialInterval: "3",
 }

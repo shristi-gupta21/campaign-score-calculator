@@ -1,4 +1,9 @@
-import { TIME_LABELS } from "@/constants"
+import {
+  CALLING_WINDOW,
+  CALLING_WINDOW_TIME_MARKERS,
+  hourToSliderPercent,
+  normalizeCallingWindow,
+} from "@/lib/calling-window/mapping"
 import { Slider } from "@/components/ui/slider"
 
 export const CallingWindow = ({
@@ -18,17 +23,36 @@ export const CallingWindow = ({
           value={value}
           onValueChange={(nextValue) => {
             if (Array.isArray(nextValue)) {
-              onValueChange(nextValue)
+              onValueChange(normalizeCallingWindow([nextValue[0], nextValue[1]]))
             }
           }}
-          min={0}
-          max={100}
+          min={CALLING_WINDOW.startHour}
+          max={CALLING_WINDOW.endHour}
           step={1}
         />
-        <div className="font-inter flex w-full items-center justify-between text-sm font-medium leading-[18px] tracking-[-0.28px] text-zinc-500">
-          {TIME_LABELS.map((label) => (
-            <span key={label}>{label}</span>
-          ))}
+        <div className="relative h-[18px] w-full">
+          {CALLING_WINDOW_TIME_MARKERS.map(({ label, hour }) => {
+            const percent = hourToSliderPercent(hour)
+            const isFirst = hour === CALLING_WINDOW.startHour
+            const isLast = hour === CALLING_WINDOW.endHour
+
+            return (
+              <span
+                key={label}
+                className="absolute font-inter text-sm font-medium leading-[18px] tracking-[-0.28px] text-zinc-500 text-nowrap"
+                style={{
+                  left: `${percent}%`,
+                  transform: isFirst
+                    ? "translateX(0)"
+                    : isLast
+                      ? "translateX(-100%)"
+                      : "translateX(-50%)",
+                }}
+              >
+                {label}
+              </span>
+            )
+          })}
         </div>
       </div>
     </div>
