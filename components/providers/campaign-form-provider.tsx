@@ -11,6 +11,7 @@ import {
 
 import { DEFAULT_CAMPAIGN_INPUTS } from "@/constants/campaign-defaults";
 import { buildSubmitPayload } from "@/lib/campaign/build-submit-payload";
+import { normalizeCallingWindow } from "@/lib/calling-window/mapping";
 import type {
   CampaignInputs,
   CampaignSubmitPayload,
@@ -50,7 +51,7 @@ export function CampaignFormProvider({ children }: { children: ReactNode }) {
   const onWindowRangeChange = useCallback((windowRange: number[]) => {
     setInputs((previous) => ({
       ...previous,
-      callingWindow: [windowRange[0], windowRange[1]],
+      callingWindow: normalizeCallingWindow([windowRange[0], windowRange[1]]),
     }));
   }, []);
 

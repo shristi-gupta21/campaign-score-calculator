@@ -2,6 +2,7 @@ export type RedialIntervalValue = "3" | "6" | "9" | "12" | "24";
 
 export type CampaignInputs = {
   callingDays: Set<string>;
+  /** Start and end hour on a 24h clock (8 = 8 AM, 21 = 9 PM). */
   callingWindow: [number, number];
   redialCount: number;
   redialInterval: RedialIntervalValue;
@@ -9,6 +10,7 @@ export type CampaignInputs = {
 
 export type CampaignSubmitPayload = {
   callingDays: string[];
+  /** Start and end hour on a 24h clock (8 = 8 AM, 21 = 9 PM). */
   callingWindow: [number, number];
   redialCount: number;
   redialInterval: RedialIntervalValue;

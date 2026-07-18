@@ -3,7 +3,7 @@ import type { RedialIntervalValue } from "@/types/campaign"
 
 export const OPTIMAL = {
   weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri"] as const,
-  windowRange: [0, 100] as [number, number],
+  windowRange: [8, 21] as [number, number],
   callingWindowHours: CALLING_WINDOW.totalHours,
   redialCount: 5,
   redialInterval: "3" as RedialIntervalValue,
