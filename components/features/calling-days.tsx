@@ -2,10 +2,10 @@ import { DAYS } from "@/constants"
 import { cn } from "@/lib/utils"
 
 const CallingDays = ({
-  selectedDays,
+  callingDays,
   onToggle,
 }: {
-  selectedDays: Set<string>
+  callingDays: Set<string>
   onToggle: (day: string) => void
 }) => {
   return (
@@ -15,7 +15,7 @@ const CallingDays = ({
       </p>
       <div className="flex w-full gap-2">
         {DAYS.map((day) => {
-          const isSelected = selectedDays.has(day)
+          const isSelected = callingDays.has(day)
 
           return (
             <button

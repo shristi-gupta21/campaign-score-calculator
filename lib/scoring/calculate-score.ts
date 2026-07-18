@@ -7,8 +7,8 @@ import type { CampaignInputs, CampaignScoreResult } from "@/types/campaign"
 
 export function calculateScore(inputs: CampaignInputs): CampaignScoreResult {
   const penalties = {
-    callingDays: calculateCallingDaysPenalty(inputs.selectedDays),
-    callingWindow: calculateCallingWindowPenalty(inputs.windowRange),
+    callingDays: calculateCallingDaysPenalty(inputs.callingDays),
+    callingWindow: calculateCallingWindowPenalty(inputs.callingWindow),
     redialCount: calculateRedialCountPenalty(inputs.redialCount),
     redialInterval: calculateRedialIntervalPenalty(inputs.redialInterval),
   }

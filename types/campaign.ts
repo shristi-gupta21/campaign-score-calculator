@@ -1,8 +1,15 @@
 export type RedialIntervalValue = "3" | "6" | "9" | "12" | "24";
 
 export type CampaignInputs = {
-  selectedDays: Set<string>;
-  windowRange: [number, number];
+  callingDays: Set<string>;
+  callingWindow: [number, number];
+  redialCount: number;
+  redialInterval: RedialIntervalValue;
+};
+
+export type CampaignSubmitPayload = {
+  callingDays: string[];
+  callingWindow: [number, number];
   redialCount: number;
   redialInterval: RedialIntervalValue;
 };
@@ -29,9 +36,9 @@ export type CampaignScoreCardProps = {
 };
 
 export type GuardrailsProps = {
-  selectedDays: Set<string>;
+  callingDays: Set<string>;
   onToggleDay: (day: string) => void;
-  windowRange: [number, number];
+  callingWindow: [number, number];
   onWindowRangeChange: (range: number[]) => void;
 };
 
