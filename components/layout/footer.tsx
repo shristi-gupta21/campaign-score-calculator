@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="flex justify-between gap-4 border-t border-t-zinc-200 pt-6 mt-6">
       {submittedPayload && (
-        <pre className="overflow-x-auto rounded-lg border border-border bg-muted/50 p-4 font-mono text-sm text-foreground">
+        <pre className="overflow-x-auto rounded-lg border border-border bg-muted/50 p-4 font-mono text-sm text-foreground w-full">
           {JSON.stringify(submittedPayload, null, 2)}
         </pre>
       )}
