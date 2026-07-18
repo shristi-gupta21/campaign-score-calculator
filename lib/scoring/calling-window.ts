@@ -1,15 +1,8 @@
-import {
-  CALLING_WINDOW_PENALTIES,
-  OPTIMAL,
-} from "@/lib/scoring/constants"
+import { getCallingWindowHours } from "@/lib/calling-window/mapping"
+import { CALLING_WINDOW_PENALTIES } from "@/lib/scoring/constants"
 import { lookupPenalty } from "@/lib/scoring/lookup"
 
-export function getCallingWindowHours(windowRange: [number, number]): number {
-  const [start, end] = windowRange
-  const span = Math.max(0, end - start)
-
-  return (span / 100) * OPTIMAL.callingWindowHours
-}
+export { getCallingWindowHours } from "@/lib/calling-window/mapping"
 
 export function calculateCallingWindowPenalty(
   windowRange: [number, number]

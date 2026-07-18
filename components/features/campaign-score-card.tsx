@@ -21,6 +21,7 @@ const CampaignScoreCard = ({
           </span>
         </div>
         <Image
+          key={weatherLevel}
           src={`/level-${weatherLevel}.svg`}
           alt={`Campaign score level ${weatherLevel}`}
           width={558}

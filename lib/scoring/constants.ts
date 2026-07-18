@@ -1,9 +1,10 @@
+import { CALLING_WINDOW } from "@/lib/calling-window/mapping"
 import type { RedialIntervalValue } from "@/types/campaign"
 
 export const OPTIMAL = {
   weekdays: ["Mon", "Tue", "Wed", "Thu", "Fri"] as const,
   windowRange: [0, 100] as [number, number],
-  callingWindowHours: 13,
+  callingWindowHours: CALLING_WINDOW.totalHours,
   redialCount: 5,
   redialInterval: "3" as RedialIntervalValue,
   selectedDayCount: 5,

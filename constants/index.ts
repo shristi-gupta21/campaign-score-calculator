@@ -1,8 +1,9 @@
-import { CampaignPenalties } from "@/types/campaign";
+import { CALLING_WINDOW_TIME_MARKERS } from "@/lib/calling-window/mapping"
+import { CampaignPenalties } from "@/types/campaign"
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] as const
 const DEFAULT_DAYS = new Set<string>(["Mon", "Tue", "Wed", "Thu", "Fri"])
-const TIME_LABELS = ["8 AM", "11 AM", "2 PM", "5 PM", "9 PM"]
+const TIME_LABELS = CALLING_WINDOW_TIME_MARKERS.map(({ label }) => label)
 const REDIAL_COUNTS = [0, 2, 4, 6, 8, 10] as const
 const REDIAL_INTERVALS = [
   { value: "3", label: "3 hours" },
@@ -17,8 +18,8 @@ const PENALTY_ROWS: {
   key: keyof CampaignPenalties
   label: string
 }[] = [
-  { key: "callingDays", label: "Calling days panelty" },
-  { key: "callingWindow", label: "Calling window panelty" },
+  { key: "callingDays", label: "Calling days penalty" },
+  { key: "callingWindow", label: "Calling window penalty" },
   { key: "redialCount", label: "Redial count penalty" },
   { key: "redialInterval", label: "Redial interval penalty" },
 ]
