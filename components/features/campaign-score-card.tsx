@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import type { CampaignScoreCardProps } from "@/types/campaign";
+import WeatherScene from "@/components/features/weather-scene";
 import { cn } from "@/lib/utils";
 import { PENALTY_ROWS } from "@/constants";
 
@@ -12,7 +11,8 @@ const CampaignScoreCard = ({
   return (
     <div className="flex min-w-0 flex-1 flex-col gap-4 overflow-hidden rounded-2xl border border-zinc-200 bg-white">
       <div className="relative w-full">
-        <div className="absolute inset-x-0 top-[68px] flex flex-col items-center text-center">
+        <WeatherScene weatherLevel={weatherLevel} />
+        <div className="pointer-events-none absolute inset-x-0 top-[18.7%] z-10 flex flex-col items-center text-center">
           <span className="text-[64px] font-bold tracking-[-2.56px] text-white">
             {score.toFixed(0)}
           </span>
@@ -20,14 +20,6 @@ const CampaignScoreCard = ({
             Campaign Score
           </span>
         </div>
-        <Image
-          key={weatherLevel}
-          src={`/level-${weatherLevel}.svg`}
-          alt={`Campaign score level ${weatherLevel}`}
-          width={558}
-          height={472}
-          className="h-auto w-full"
-        />
       </div>
       <div className="flex flex-col gap-4 pt-4">
         {PENALTY_ROWS.map(({ key, label }) => (
