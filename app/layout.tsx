@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/layout/footer";
+import { CampaignFormProvider } from "@/components/providers/campaign-form-provider";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -29,9 +30,11 @@ export default function RootLayout({
       className={cn("h-full font-inter antialiased", inter.variable, geist.variable)}
     >
       <body className="min-h-full flex flex-col max-w-7xl mx-auto px-10 max-2xl:px-4">
-        <Header />
-        {children}
-        <Footer />
+        <CampaignFormProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CampaignFormProvider>
       </body>
     </html>
   );

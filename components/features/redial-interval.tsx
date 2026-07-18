@@ -29,7 +29,7 @@ export function RedialInterval({
             <RadioGroupItem value={interval.value} />
             <span
               className={cn(
-                "font-inter flex h-10 w-full items-center justify-center rounded-lg border px-6 text-sm font-medium tracking-[-0.28px] text-zinc-800",
+                "font-inter flex h-10 w-full items-center justify-center rounded-lg border px-6 text-sm font-medium tracking-[-0.28px] text-zinc-800 text-nowrap",
                 value === interval.value
                   ? "border-zinc-200 bg-white"
                   : "border-transparent bg-transparent"

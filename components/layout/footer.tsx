@@ -1,14 +1,23 @@
-import React from 'react'
-import { Button } from '../ui/button';
+"use client";
 
-const footer = () => {
+import { Button } from "@/components/ui/button";
+import { useCampaignForm } from "@/components/providers/campaign-form-provider";
+
+export default function Footer() {
+  const { submittedPayload, submit } = useCampaignForm();
+
   return (
-    <footer className=' border-t border-t-zinc-200 pt-6 flex justify-end'>
-        <Button>
-            Submit
+    <footer className="flex justify-between gap-4 border-t border-t-zinc-200 pt-6">
+      {submittedPayload && (
+        <pre className="overflow-x-auto rounded-lg border border-border bg-muted/50 p-4 font-mono text-sm text-foreground">
+          {JSON.stringify(submittedPayload, null, 2)}
+        </pre>
+      )}
+      <div className="flex justify-end">
+        <Button type="button" onClick={submit}>
+          Submit
         </Button>
+      </div>
     </footer>
-  )
+  );
 }
-
-export default footer

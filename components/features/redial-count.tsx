@@ -26,7 +26,7 @@ export function RedialCount({
           }}
           min={0}
           max={10}
-          step={2}
+          step={1}
         />
         <div className="font-inter flex w-full items-center justify-between text-sm font-medium leading-[18px] tracking-[-0.28px] text-zinc-500">
           {REDIAL_COUNTS.map((count) => (
